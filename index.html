@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Startup Page</title>
+    <title>Next Todo App</title>
     <!-- fontawesome link through CDN-->
     <link
       rel="stylesheet"
@@ -15,25 +15,43 @@
     <!-- main css -->
     <link rel="stylesheet" href="dist/output.css" />
   </head>
-  <body class="flex h-screen flex-col items-center justify-center">
-    <h1 class="text-3xl font-bold">Next Todo List</h1>
-    <span class="text-gray-300">Change Todo List name?</span>
+  <body class="flex min-h-screen flex-col items-center justify-center py-24">
+    <div class="m-auto w-11/12 text-center lg:w-6/12">
+      <h1 class="nextTodo -mt-20 text-6xl font-bold text-stone-800">Next</h1>
+      <h2 class="text-2xl font-light text-stone-800">Todo App</h2>
 
-    <div class="mt-6 w-11/12">
-      <div class="flex">
-        <div class="grow">
-          <input type="text" id="nextTodoItem" class="w-full bg-gray-200 px-4 py-2" placeholder="What's up Next?" />
+      <div class="relative mt-6">
+        <div class="flex">
+          <div class="grow">
+            <input type="text" id="nextTodoItem" class="w-full rounded-l-2xl py-4 pl-6 text-lg outline-none" placeholder="What's up Next?..." />
+          </div>
+          <div>
+            <button type="submit" id="nextAddBtn" class="btn btn-primary w-12 rounded-r-2xl py-4 text-lg"><i class="fa-solid fa-plus"></i></button>
+            <div id="notify" class="absolute -right-[0.9rem] -top-[6rem] hidden w-20 rounded-xl bg-yellow-300 p-2 text-center text-xs">
+              You need to fill in your Next To Do
+            </div>
+          </div>
         </div>
-        <div>
-          <button type="submit" id="nextAddBtn" class="btn btn-primary w-12">+</button>
+      </div>
+
+      <ul id="nextList" class="pt-3 text-left"></ul>
+      <button type="submit" id="nextDeleteAll" class="btn btn-secondary relative z-20 mt-4 hidden rounded-2xl px-4">
+        <i class="fa-regular fa-trash-can"></i> Delete all
+      </button>
+      <div id="completedText" class="hidden">
+        <h2 class="pt-6 text-left font-bold uppercase text-green-500"><i class="fa-solid fa-check"></i> Completed</h2>
+        <h3 class="text-left text-sm font-bold uppercase">You are doing great!</h3>
+      </div>
+      <ul id="nextListCompleted" class="pt-3 text-left"></ul>
+
+      <button type="submit" id="clearAll" class="btn btn-primary relative z-20 mt-4 hidden rounded-2xl px-4">Clear Completed</button>
+      <div class="fixed bottom-2 left-0 z-0 w-full" style="color: #ccccb3">
+        <div id="quote" class="px-4 pt-8 text-center text-xs uppercase tracking-widest">Created with vanilla Javascript & Tailwind CSS</div>
+        <div id="copyright" class="wowpixels px-4 text-center">
+          <a class="transition duration-500 ease-in-out hover:text-pink-400" href="https://wowpixels.dev" target="_blank">wowpixels.dev</a>
         </div>
       </div>
     </div>
-
-    <ul id="nextList" class="w-11/12 pt-3"></ul>
-    <ul id="nextListCompleted" class="w-11/12 pt-3"></ul>
-
-    <button type="submit" id="clearAll" class="btn btn-primary mt-4 hidden rounded-2xl px-4">Clear Completed</button>
     <!-- main js -->
     <script src="script.js"></script>
   </body>

@@ -5,18 +5,34 @@ let nextTodoListCompleted = document.getElementById("nextListCompleted");
 // get input
 let nextTodoItemMain = document.getElementById("nextTodoItem");
 
+// delete all items at once btn
+let nextDeleteAll = document.getElementById("nextDeleteAll");
+
+// notify if input is empty
+let notify = document.getElementById("notify");
+
 // create a function when add button is pressed
 let nextAddBtn = document.getElementById("nextAddBtn");
 nextAddBtn.addEventListener("click", storeToDoItem);
+
+if (nextTodoItemMain === "") {
+  nextDeleteAll.classList.add("hidden");
+} else {
+}
 
 // if input is empty dont add todo else create a new function for new todos
 function storeToDoItem() {
   let nextTodoItem = nextTodoItemMain.value;
   if (nextTodoItem === "") {
-    return;
+    notify.classList.remove("hidden");
   } else {
     nextTodoMerged(nextTodoItem);
     nextTodoItemMain.value = "";
+    notify.classList.add("hidden");
+    nextDeleteAll.classList.remove("hidden");
+    nextDeleteAll.addEventListener("click", function () {
+      nextDeleteAll.classList.add("hidden");
+    });
   }
 }
 
@@ -44,6 +60,8 @@ function nextTodoMerged(nextTodoItem) {
   trashBtn.classList.add("fa-regular", "fa-trash-can");
   trashBtnDiv.classList.add("trashBtnBox");
 
+  let checkMark = document.createElement("i");
+
   // add trash btn inside the list
   trashBtnDiv.appendChild(trashBtn);
 
@@ -59,11 +77,29 @@ function nextTodoMerged(nextTodoItem) {
   // add list item inside the <ul>
   nextTodoList.appendChild(createListItem);
 
+  // delete to do item when clicked on trash can
+  trashBtnDiv.addEventListener("click", function () {
+    createListItem.innerHTML = "";
+  });
+
+  nextDeleteAll.addEventListener("click", function () {
+    nextTodoList.innerHTML = "";
+  });
+
+  createListItem.addEventListener("mouseover", function () {
+    createDivItem.appendChild(checkMark);
+    checkMark.classList.add("fa-solid", "fa-circle-check", "pl-2");
+  });
+  createListItem.addEventListener("mouseleave", function () {
+    createDivItem.removeChild(checkMark);
+  });
+
   // add a toggle state function for completed todos
   createListItem.addEventListener("dblclick", toggleState);
 
   // get clear all btn
   let clearAll = document.getElementById("clearAll");
+  let completedText = document.getElementById("completedText");
 
   // toggle the state of a do to by double clicking and adding completed class
   function toggleState() {
@@ -73,6 +109,7 @@ function nextTodoMerged(nextTodoItem) {
       this.classList.add("completed");
       clearAll.classList.add("inline");
       clearAll.classList.remove("hidden");
+      completedText.classList.remove("hidden");
       addToCompletedList(nextTodoItem);
     }
   }
@@ -101,6 +138,7 @@ function nextTodoMerged(nextTodoItem) {
       nextTodoListCompleted.innerHTML = "";
       clearAll.classList.remove("inline");
       clearAll.classList.add("hidden");
+      completedText.classList.add("hidden");
     }
   }
 }

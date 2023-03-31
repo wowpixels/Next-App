@@ -2,25 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap");
 
 @layer components {
   .btn-primary {
-    @apply bg-green-500 p-2 font-semibold text-white 
-    shadow-md hover:bg-green-400;
+    @apply bg-green-500 py-2 font-semibold text-white 
+     hover:bg-green-400;
+  }
+  .btn-secondary {
+    @apply bg-red-500 py-2 font-semibold text-white 
+     hover:bg-red-400;
+  }
+  .primary-bg-color {
+    background-color: #e6e6be;
+  }
+  .secondary-bg-color {
+    background-color: #dfdfbf;
   }
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #efeee0;
+}
+
+.nextTodo {
+  font-family: "Playfair Display", serif;
+}
+
+.wowpixels {
+  font-family: "Chewy", sans-serif;
+}
+
 ul > li {
-  @apply mb-1 flex;
+  @apply relative z-20 mb-1 flex;
 }
 
 ul > li .nextItem {
-  @apply grow cursor-pointer select-none  bg-gray-200 p-2 hover:bg-gray-300;
+  @apply grow cursor-pointer select-none rounded-l-2xl bg-white py-2 pl-6;
 }
 
 .trashBtnBox {
-  @apply w-12 cursor-pointer bg-red-500 px-4 py-2 text-white hover:bg-red-600;
+  @apply w-12 cursor-pointer rounded-r-2xl bg-red-500 px-4 py-2 text-white hover:bg-red-600;
 }
 
 .completed {
@@ -28,5 +52,5 @@ ul > li .nextItem {
 }
 
 .nextItemCompleted {
-  @apply w-full select-none bg-gray-100 p-2 text-gray-400 line-through;
+  @apply w-full select-none rounded-2xl bg-gray-100 py-2 pl-4 text-gray-400 line-through;
 }
