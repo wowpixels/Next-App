@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;700&display=swap");
+
+@layer components {
+  .btn-primary {
+    @apply bg-green-500 p-2 font-semibold text-white 
+    shadow-md hover:bg-green-400;
+  }
+}
+
+ul > li {
+  @apply mb-1 flex;
+}
+
+ul > li .nextItem {
+  @apply grow cursor-pointer select-none  bg-gray-200 p-2 hover:bg-gray-300;
+}
+
+.trashBtnBox {
+  @apply w-12 cursor-pointer bg-red-500 px-4 py-2 text-white hover:bg-red-600;
+}
+
+.completed {
+  @apply hidden bg-gray-100 text-gray-400 line-through;
+}
+
+.nextItemCompleted {
+  @apply w-full select-none bg-gray-100 p-2 text-gray-400 line-through;
+}
