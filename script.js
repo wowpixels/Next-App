@@ -15,10 +15,10 @@ let notify = document.getElementById("notify");
 let nextAddBtn = document.getElementById("nextAddBtn");
 nextAddBtn.addEventListener("click", storeToDoItem);
 
-if (nextTodoItemMain === "") {
+// hide delete button if clicked once
+nextDeleteAll.addEventListener("click", function () {
   nextDeleteAll.classList.add("hidden");
-} else {
-}
+});
 
 // if input is empty dont add todo else create a new function for new todos
 function storeToDoItem() {

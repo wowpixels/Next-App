@@ -12,22 +12,34 @@
       integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;500;800&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet" />
     <!-- main css -->
     <link rel="stylesheet" href="dist/output.css" />
   </head>
   <body class="flex min-h-screen flex-col items-center justify-center py-24">
-    <div class="m-auto w-11/12 text-center lg:w-6/12">
+    <div class="bg-white-opacity m-auto w-11/12 rounded-2xl border px-5 py-32 text-center shadow-sm lg:w-6/12 lg:px-20 lg:py-32">
       <h1 class="nextTodo -mt-20 text-6xl font-bold text-stone-800">Next</h1>
       <h2 class="text-2xl font-light text-stone-800">Todo App</h2>
 
       <div class="relative mt-6">
         <div class="flex">
           <div class="grow">
-            <input type="text" id="nextTodoItem" class="w-full rounded-l-2xl py-4 pl-6 text-lg outline-none" placeholder="What's up Next?..." />
+            <input
+              type="text"
+              id="nextTodoItem"
+              class="w-full rounded-l-2xl py-4 pl-6 text-lg shadow-sm outline-none"
+              placeholder="What's up Next?..." />
           </div>
           <div>
-            <button type="submit" id="nextAddBtn" class="btn btn-primary w-12 rounded-r-2xl py-4 text-lg"><i class="fa-solid fa-plus"></i></button>
-            <div id="notify" class="absolute -right-[0.9rem] -top-[6rem] hidden w-20 rounded-xl bg-yellow-300 p-2 text-center text-xs">
+            <button type="submit" id="nextAddBtn" class="btn btn-primary w-12 rounded-r-2xl py-4 text-lg shadow-sm">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div id="notify" class="absolute -right-[0.9rem] -top-[6rem] hidden w-20 rounded-xl bg-yellow-300 p-2 text-center text-xs shadow-sm">
               You need to fill in your Next To Do
             </div>
           </div>

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Montserrat:wght@300;500;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap");
-
 @layer components {
   .btn-primary {
     @apply bg-green-500 py-2 font-semibold text-white 
@@ -32,7 +29,7 @@ body {
 }
 
 .wowpixels {
-  font-family: "Chewy", sans-serif;
+  font-family: "Chewy", cursive;
 }
 
 ul > li {
@@ -40,11 +37,11 @@ ul > li {
 }
 
 ul > li .nextItem {
-  @apply grow cursor-pointer select-none rounded-l-2xl bg-white py-2 pl-6;
+  @apply grow cursor-pointer select-none rounded-l-2xl bg-white py-2 pl-6 shadow-sm;
 }
 
 .trashBtnBox {
-  @apply w-12 cursor-pointer rounded-r-2xl bg-red-500 px-4 py-2 text-white hover:bg-red-600;
+  @apply w-12 cursor-pointer rounded-r-2xl bg-red-500 px-4 py-2 text-white shadow-sm hover:bg-red-600;
 }
 
 .completed {
@@ -52,5 +49,9 @@ ul > li .nextItem {
 }
 
 .nextItemCompleted {
-  @apply w-full select-none rounded-2xl bg-gray-100 py-2 pl-4 text-gray-400 line-through;
+  @apply w-full select-none rounded-2xl bg-gray-100 py-2 pl-4 text-gray-400 line-through shadow-sm;
+}
+
+.bg-white-opacity {
+  background-color: rgba(255, 255, 255, 0.5);
 }
